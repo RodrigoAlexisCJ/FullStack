@@ -1,0 +1,44 @@
+<!--<h1>Find your Article</h1>-->
+<h1>Product List</h1>
+<div class="container">
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Color</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.category}}</td>
+            <td>{{product.color}}</td>
+            <td>{{product.price}}</td>
+        </tr>
+    </tbody>
+
+</table>
+</div>
+
+<label for="cat-names">Choose a products category : </label>
+<!--<select name="cat-names" id="cat-names" [(ngModel)]="selected">
+    <option value=" "> </option>
+    <option value="electronics">Electronics</option>
+    <option value="clothes">Clothes</option>
+    <option value="kitchen">Kitchen</option>
+</select>-->
+
+<select name="cat-names" id="cat-names" [(ngModel)]="selected">
+    <option [value]="item" *ngFor="let item of list">{{item}}</option>
+</select>
+
+<p>You selected: {{selected}}</p>
+
+<button (click)="getArticlesByCategory()" class="btn btn-success">Buscar</button>
+
+
+
